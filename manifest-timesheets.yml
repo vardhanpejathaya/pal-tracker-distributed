@@ -7,7 +7,7 @@ applications:
   disk_quota: 475M
   instances: 1
   env:
-    REGISTRATION_SERVER_ENDPOINT: http://timesheets-pal-var-project-timesheets.cfapps.io
+    REGISTRATION_SERVER_ENDPOINT: http://registration-pal-var-project-registration.cfapps.io
     JAVA_OPTS: '-Xms64m -Xmx256m'
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
   services:
