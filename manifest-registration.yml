@@ -2,10 +2,12 @@ applications:
 - name: tracker-registration
   path: ./applications/registration-server/build/libs/registration-server.jar
   routes:
-  - route: registration-pal-${UNIQUE_IDENTIFIER}.${DOMAIN}
-  memory: 1G
+  - route: registration-pal-var-project-registration.cfapps.io
+  memory: 475M
+  disk_quota: 475M
   instances: 1
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    JAVA_OPTS: '-Xms64m -Xmx256m'
   services:
   - tracker-registration-database

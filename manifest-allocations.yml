@@ -2,11 +2,13 @@ applications:
 - name: tracker-allocations
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
-  - route: allocations-pal-${UNIQUE_IDENTIFIER}.${DOMAIN}
-  memory: 1G
+  - route: allocations-pal-var-project-allocation.cfapps.io
+  memory: 475M
+  disk_quota: 475M
   instances: 1
   env:
-    REGISTRATION_SERVER_ENDPOINT: http://${REGISTRATION_SERVER_ROUTE}
+    REGISTRATION_SERVER_ENDPOINT: http://allocations-pal-var-project-allocation.cfapps.io
+    JAVA_OPTS: '-Xms64m -Xmx256m'
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
   services:
   - tracker-allocations-database
