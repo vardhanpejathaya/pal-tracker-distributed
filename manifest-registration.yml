@@ -11,3 +11,4 @@ applications:
     JAVA_OPTS: '-Xms64m -Xmx256m'
   services:
   - tracker-registration-database
+  - tracker-service-registry
