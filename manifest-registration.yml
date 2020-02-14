@@ -9,6 +9,7 @@ applications:
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     JAVA_OPTS: '-Xms64m -Xmx256m'
+    MANAGEMENT_ENDPOINT_HELATH_SHOW-DETAILS: 'always'
   services:
   - tracker-registration-database
   - tracker-service-registry
