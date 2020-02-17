@@ -14,12 +14,13 @@ import org.springframework.web.client.RestOperations;
 
 import java.util.TimeZone;
 
+
 @EnableWebSecurity
 @EnableResourceServer
+@EnableCircuitBreaker
+@EnableEurekaClient
 @EnableOAuth2Client
 @SpringBootApplication
-@EnableEurekaClient
-@EnableCircuitBreaker
 @ComponentScan({"io.pivotal.pal.tracker.allocations", "io.pivotal.pal.tracker.restsupport"})
 public class App {
 
@@ -30,8 +31,8 @@ public class App {
 
     @Bean
     ProjectClient projectClient(
-        RestOperations restOperations,
-        @Value("${registration.server.endpoint}") String registrationEndpoint
+            RestOperations restOperations,
+            @Value("${registration.server.endpoint}") String registrationEndpoint
     ) {
         return new ProjectClient(restOperations, registrationEndpoint);
     }
