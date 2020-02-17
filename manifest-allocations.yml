@@ -2,14 +2,16 @@ applications:
 - name: tracker-allocations
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
-  - route: allocations-pal-var-project-allocation.cfapps.io
+  - route: allocations-rajOrg-var-project-allocation.cfapps.io
   memory: 475M
   disk_quota: 475M
   instances: 1
   env:
     JAVA_OPTS: '-Xms64m -Xmx256m'
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
-    MANAGEMENT_ENDPOINT_HELATH_SHOW-DETAILS: 'always'
+    MANAGEMENT_ENDPOINT_HEALTH_SHOW-DETAILS: 'always'
+    GRANT_TYPE: client_credentials
   services:
   - tracker-allocations-database
   - tracker-service-registry
+  - tracker-sso
